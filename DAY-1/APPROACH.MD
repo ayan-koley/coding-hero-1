@@ -52,3 +52,17 @@ If the password length is less than 8, we immediately return `"Weak"`.
 
 > ✅ If all flags are `true` → return `"Strong"`  
 > ❌ Otherwise → return `"Weak"`
+
+---
+# 🔐 Playlist Manager – Approach
+
+## Java Approach
+
+- `regex = /addSong\('([^']*)'\)/`
+
+1. Initialize an empty list `ans` to store the final playlist.
+2. Use a regular expression to extract song names from actions of the form `addSong('songName')`.
+3. Iterate through the list of `actions`:
+   - If the action starts with `addSong`, extract the song name using regex and add it to the `ans` list, wrapping it in double quotes.
+   - If the action is not an `addSong` and the list is not empty, remove the last added song (simulating a `undo` operation).
+4. Return the `ans` list after processing all actions.
