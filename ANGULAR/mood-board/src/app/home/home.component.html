@@ -2,7 +2,7 @@
     <button 
     (click)="setMood(mood.name)"
     *ngFor="let mood of moods" 
-    class="shadow ring-1 w-24 rounded px-2 py-1 mx-2 cursor-pointer hover:opacity-70 transition-all duration-300"
+    class="shadow ring-1 w-24 rounded px-2 py-1 mx-2 cursor-pointer hover:opacity-70 transition-all duration-300 text-black font-bold"
     [ngClass]="[mood.shadowClr,mood.color]"
     >{{mood.name}}</button>
 </div>
