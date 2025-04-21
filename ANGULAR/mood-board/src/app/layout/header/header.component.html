@@ -1,0 +1,6 @@
+<header class="bg-[#374151] py-3 w-full px-5 flex justify-between items-center shadow-xl/30 rounded-xl mb-10">
+    <h1 class="text-2xl cursor-pointer">Mood Board</h1>
+    <nav>
+        <a *ngFor="let route of headerOptions" routerLink="route.path" class="mx-5 cursor-pointer hover:underline hover:text-white text-[#bcc0d0]">{{route.name}}</a>
+    </nav>
+</header>

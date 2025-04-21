@@ -1,0 +1,21 @@
+<div class="bg-gray-800 mx-auto my-auto w-fit p-5 rounded">
+    <button 
+    (click)="setMood(mood.name)"
+    *ngFor="let mood of moods" 
+    class="shadow ring-1 w-24 rounded px-2 py-1 mx-2 cursor-pointer hover:opacity-70 transition-all duration-300"
+    [ngClass]="[mood.shadowClr,mood.color]"
+    >{{mood.name}}</button>
+</div>
+
+<div *ngIf="showMood" class="bg-gray-800 mx-auto my-auto rounded mt-10 h-50 flex flex-col items-center justify-center px-2"
+    [ngStyle] = "{'width': '38rem'}"
+>
+    <div class="text-center">
+        <p *ngIf="showMood" [ngStyle]="{'font-size': '1.3rem', 'color': 'red'}">Selected Mood : {{selectedMood}}</p>
+    </div>
+    <div class="text-center">
+        <p *ngIf="isMoodMessageVisible" [ngStyle]="{'font-size': '1.4rem', 'color': 'bisque'}"><span class="underline font-bold">
+            {{selectedMood}}
+        </span>: {{moodMessage}}</p>
+    </div>
+</div>
