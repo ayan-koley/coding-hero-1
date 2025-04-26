@@ -1,0 +1,26 @@
+<!-- Popup (Modal) -->
+<div id="moodPopup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
+    *ngIf = "isVisible"
+>
+    <div class="bg-gray-800 p-8 rounded-xl shadow-lg w-full max-w-md text-center">
+        <p class="text-xl font-semibold mb-4">Enter your name</p>
+         <!-- when submit the popup is hide and store input value from html -> ts -->
+          <!-- ngModel is responsible for two way data binding -->
+                <input 
+                type="text" 
+                class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition duration-300 placeholder-gray-400" 
+                [(ngModel)]="username" 
+                placeholder="Enter your Name..."
+                (keyup.enter) = "submitUsername()"
+            >
+            <div class="flex flex-row-reverse">
+                
+                <button class="mt-6 px-4 py-2 bg-blue-400 text-gray-900 rounded-lg shadow-md hover:bg-blue-500 hover:scale-105 cursor-pointer transition mx-4 duration-300"
+                (click) = "submitUsername()"
+                >Save</button>
+                <button class="mt-6 px-4 py-2 bg-white text-gray-900 rounded-lg shadow-md hover:bg-yellow-100 hover:scale-105 cursor-pointer transition duration-300"
+                (click) = "closePopup()"
+                >Close</button>
+            </div>
+    </div>
+</div>

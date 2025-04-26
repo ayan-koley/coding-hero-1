@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { MoodMessageDirective } from '../shared/directives/mood-message.directive';
+import { MoodEmojiPipe } from '../shared/pipes/mood-emoji.pipe';
+import { PopupComponent } from '../popup/popup.component';
 
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, PopupComponent, MoodEmojiPipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -17,11 +19,15 @@ export class HomeComponent {
     { name: 'Calm', color: 'bg-teal-400', shadowClr: 'shadow-teal-400/50' },
     { name: 'Excited', color: 'bg-pink-400', shadowClr: 'shadow-pink-400/50' }
   ]
+  username: string = "";
   selectedMood: string = '';
   showMood: boolean = false;
   isMoodMessageVisible: boolean = false;
   moodMessage: string = '';
+  showUsernamePopup: boolean = true;
+
   constructor() {}
+
   setMood(mood: string): void{
     console.log("mood is called", mood);
     if(mood.trim() !== '') {
@@ -35,4 +41,23 @@ export class HomeComponent {
       }
     }
   }
+
+  ngOnInit() {
+      const savedUsername = localStorage.getItem('moodBoardUsername');
+      if(savedUsername) {
+        this.showUsernamePopup = false;
+        this.username = savedUsername;
+      }
+  }
+
+  handleUsername(name: string) {
+    console.log(name);
+    this.username = name;
+    localStorage.setItem("moodBoardUsername", name);
+  }
+
+  handlePopupClose() {
+    this.showUsernamePopup = false;
+  }
+
 }

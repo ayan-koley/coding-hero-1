@@ -1,8 +1,34 @@
 @import "tailwindcss";
 
 body {
-    background-color: #111827;
-    color: #ffff;
-    padding: 2rem;
-    font-family: 'Segoe UI';
+  background-color: #111827;
+  color: #ffff;
+  font-family: "Segoe UI";
+}
+
+@keyframes shadowChange {
+  0% {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1),
+      0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  25% {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2),
+      0 0 20px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3),
+      0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  75% {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2),
+      0 0 20px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1),
+      0 0 20px rgba(255, 255, 255, 0.1);
+  }
+}
+
+.div-with-changing-shadow {
+  animation: shadowChange 3s infinite;
 }
