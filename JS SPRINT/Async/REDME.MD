@@ -1,0 +1,1 @@
+Promise article - https://blog.openreplay.com/promises-in-parallel/
